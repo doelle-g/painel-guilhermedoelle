@@ -1,0 +1,1129 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Guilherme Doelle, Profissional Estratégico em Gestão Pública</title>
+<link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy: #040d1f;
+    --deep: #071428;
+    --mid: #0a1e3d;
+    --panel: #0d2347;
+    --card: rgba(10,28,64,0.85);
+    --accent: #0ea5e9;
+    --glow: #38bdf8;
+    --neon: #7dd3fc;
+    --light: #bae6fd;
+    --white: #f0f8ff;
+    --muted: rgba(186,230,253,0.55);
+    --gold: #f0c040;
+    --diamond: #a5f3fc;
+  }
+
+  * { margin:0; padding:0; box-sizing:border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Source Sans 3', sans-serif;
+    background: var(--navy);
+    color: var(--white);
+    overflow-x: hidden;
+  }
+
+  /* ─── NOISE OVERLAY ─────────────────────────── */
+  body::before {
+    content:'';
+    position:fixed; inset:0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+    pointer-events:none; z-index:0; opacity:.35;
+  }
+
+  /* ─── NAVIGATION ────────────────────────────── */
+  nav {
+    position:fixed; top:0; left:0; right:0; z-index:100;
+    display:flex; align-items:center; justify-content:space-between;
+    padding:0 3rem;
+    height:64px;
+    background: rgba(4,13,31,0.82);
+    backdrop-filter: blur(18px);
+    border-bottom: 1px solid rgba(14,165,233,0.15);
+  }
+
+  .nav-logo {
+    font-family: 'Source Sans 3', sans-serif;
+    font-weight:700; font-size:1.05rem;
+    letter-spacing:.12em;
+    background: linear-gradient(90deg, var(--accent), var(--neon));
+    -webkit-background-clip:text; -webkit-text-fill-color:transparent;
+    text-transform: uppercase;
+  }
+
+  .nav-links {
+    display:flex; gap:2rem; list-style:none;
+  }
+
+  .nav-links a {
+    font-size:.78rem; font-weight:500; letter-spacing:.08em;
+    text-transform:uppercase; color: var(--muted);
+    text-decoration:none; transition: color .25s;
+  }
+  .nav-links a:hover { color: var(--glow); }
+
+  /* ─── HERO ──────────────────────────────────── */
+  #hero {
+    position:relative; min-height:100vh;
+    display:flex; align-items:center; justify-content:center;
+    padding:8rem 2rem 4rem;
+    overflow:hidden;
+  }
+
+  .hero-bg {
+    position:absolute; inset:0; z-index:0;
+    background: radial-gradient(ellipse 80% 60% at 50% 20%, rgba(14,165,233,0.13) 0%, transparent 70%),
+                radial-gradient(ellipse 50% 40% at 80% 80%, rgba(56,189,248,0.07) 0%, transparent 60%),
+                linear-gradient(180deg, var(--navy) 0%, var(--deep) 100%);
+  }
+
+  .grid-lines {
+    position:absolute; inset:0; z-index:0; overflow:hidden;
+    opacity:.08;
+  }
+  .grid-lines svg { width:100%; height:100%; }
+
+  .hero-inner {
+    position:relative; z-index:2;
+    text-align:center; max-width:900px;
+    animation: fadeUp .9s ease both;
+  }
+
+  .hero-badge {
+    display:inline-flex; align-items:center; gap:.55rem;
+    padding:.35rem 1rem; margin-bottom:2.2rem;
+    border:1px solid rgba(14,165,233,0.35);
+    border-radius:999px;
+    font-size:.72rem; font-weight:500; letter-spacing:.12em;
+    text-transform:uppercase; color:var(--glow);
+    background: rgba(14,165,233,0.07);
+    animation: fadeUp .9s .1s ease both;
+  }
+  .hero-badge span { width:6px; height:6px; border-radius:50%; background:var(--accent); display:inline-block; animation: pulse 2s infinite; }
+
+  .hero-name {
+    font-family:'Source Sans 3', sans-serif;
+    font-weight:700; font-size:clamp(2.4rem, 6vw, 4.8rem);
+    line-height:1.05; letter-spacing:-.015em;
+    color:var(--white);
+    animation: fadeUp .9s .2s ease both;
+  }
+  .hero-name em {
+    font-style:normal;
+    background: linear-gradient(135deg, var(--accent) 0%, var(--neon) 50%, var(--diamond) 100%);
+    -webkit-background-clip:text; -webkit-text-fill-color:transparent;
+  }
+
+  .hero-title {
+    margin-top:1rem;
+    font-size:clamp(.9rem, 1.8vw, 1.15rem); font-weight:300;
+    letter-spacing:.18em; text-transform:uppercase;
+    color:var(--muted);
+    animation: fadeUp .9s .3s ease both;
+  }
+
+  .hero-divider {
+    width:60px; height:2px; margin:2rem auto;
+    background: linear-gradient(90deg, transparent, var(--accent), transparent);
+    animation: fadeUp .9s .4s ease both;
+  }
+
+  .hero-tagline {
+    font-size:clamp(1rem, 2vw, 1.2rem); font-weight:300;
+    color:rgba(186,230,253,0.75); line-height:1.7;
+    max-width:680px; margin:0 auto;
+    animation: fadeUp .9s .5s ease both;
+  }
+
+  .hero-actions {
+    margin-top:2.8rem; display:flex; gap:1rem; justify-content:center; flex-wrap:wrap;
+    animation: fadeUp .9s .6s ease both;
+  }
+
+  .btn-primary {
+    padding:.75rem 2rem; border-radius:8px;
+    background: linear-gradient(135deg, var(--accent), #0284c7);
+    color:#fff; font-weight:600; font-size:.88rem;
+    letter-spacing:.06em; text-decoration:none; cursor:pointer; border:none;
+    transition: transform .2s, box-shadow .2s;
+    box-shadow: 0 0 24px rgba(14,165,233,0.3);
+  }
+  .btn-primary:hover { transform:translateY(-2px); box-shadow:0 0 36px rgba(14,165,233,0.5); }
+
+  .btn-outline {
+    padding:.75rem 2rem; border-radius:8px;
+    border:1px solid rgba(14,165,233,0.45); color:var(--glow);
+    font-weight:500; font-size:.88rem; letter-spacing:.06em;
+    text-decoration:none; cursor:pointer; background:transparent;
+    transition: background .2s, border-color .2s;
+  }
+  .btn-outline:hover { background:rgba(14,165,233,0.08); border-color:var(--glow); }
+
+  .hero-scroll {
+    position:absolute; bottom:2rem; left:50%; transform:translateX(-50%);
+    display:flex; flex-direction:column; align-items:center; gap:.5rem;
+    color:var(--muted); font-size:.7rem; letter-spacing:.12em; text-transform:uppercase;
+  }
+  .scroll-line { width:1px; height:40px; background:linear-gradient(180deg,var(--accent),transparent); animation:scrollAnim 2s infinite; }
+
+  /* ─── SECTIONS ───────────────────────────────── */
+  section { position:relative; z-index:1; }
+
+  .section-inner {
+    max-width:1100px; margin:0 auto; padding:6rem 2rem;
+  }
+
+  .section-label {
+    font-size:.7rem; font-weight:600; letter-spacing:.2em; text-transform:uppercase;
+    color:var(--accent); margin-bottom:.75rem; display:flex; align-items:center; gap:.5rem;
+  }
+  .section-label::before { content:''; display:inline-block; width:24px; height:1px; background:var(--accent); }
+
+  .section-title {
+    font-family:'Source Sans 3', sans-serif;
+    font-size:clamp(1.8rem, 4vw, 2.8rem); font-weight:700;
+    line-height:1.1; margin-bottom:1rem;
+  }
+
+  .section-sub {
+    font-size:1rem; font-weight:300; color:var(--muted); line-height:1.7;
+    max-width:620px;
+  }
+
+  /* ─── SOBRE ──────────────────────────────────── */
+  #sobre { background: var(--deep); }
+
+  .sobre-grid {
+    display:grid; grid-template-columns:1fr 1fr; gap:4rem; align-items:center;
+    margin-top:3rem;
+  }
+
+  .sobre-text p { font-size:.97rem; line-height:1.8; color:rgba(186,230,253,0.8); margin-bottom:1rem; }
+
+  .sobre-stats {
+    display:grid; grid-template-columns:1fr 1fr; gap:1.2rem;
+  }
+
+  .stat-card {
+    padding:1.5rem; border-radius:12px;
+    background:var(--card); border:1px solid rgba(14,165,233,0.15);
+    transition:border-color .3s, transform .3s;
+  }
+  .stat-card:hover { border-color:rgba(14,165,233,0.4); transform:translateY(-3px); }
+
+  .stat-num {
+    font-family:'Source Sans 3', sans-serif; font-size:2rem; font-weight:700;
+    background:linear-gradient(135deg,var(--accent),var(--neon));
+    -webkit-background-clip:text; -webkit-text-fill-color:transparent;
+  }
+  .stat-label { font-size:.78rem; font-weight:500; color:var(--muted); margin-top:.3rem; line-height:1.4; }
+
+  /* ─── EXPERIÊNCIA ────────────────────────────── */
+  #experiencia { background: var(--navy); }
+
+  .exp-timeline {
+    position:relative; margin-top:3.5rem;
+  }
+  .exp-timeline::before {
+    content:''; position:absolute; left:24px; top:0; bottom:0;
+    width:1px; background:linear-gradient(180deg,var(--accent),rgba(14,165,233,0.1));
+  }
+
+  .exp-item {
+    position:relative; padding:0 0 3rem 4.5rem;
+    opacity:0; transform:translateX(-20px);
+    transition:opacity .6s, transform .6s;
+  }
+  .exp-item.visible { opacity:1; transform:translateX(0); }
+
+  .exp-dot {
+    position:absolute; left:14px; top:4px;
+    width:20px; height:20px; border-radius:50%;
+    background:var(--accent); border:3px solid var(--navy);
+    box-shadow: 0 0 12px rgba(14,165,233,0.6);
+  }
+
+  .exp-period {
+    font-size:.72rem; font-weight:600; letter-spacing:.12em; text-transform:uppercase;
+    color:var(--accent); margin-bottom:.5rem;
+  }
+
+  .exp-role {
+    font-family:'Source Sans 3', sans-serif; font-size:1.35rem; font-weight:700;
+    color:var(--white); margin-bottom:.25rem;
+  }
+
+  .exp-org {
+    font-size:.88rem; font-weight:500; color:var(--glow); margin-bottom:1rem;
+  }
+
+  .exp-list {
+    list-style:none; display:flex; flex-direction:column; gap:.5rem;
+  }
+  .exp-list li {
+    font-size:.9rem; color:rgba(186,230,253,0.75); padding-left:1.2rem; position:relative; line-height:1.6;
+  }
+  .exp-list li::before {
+    content:''; position:absolute; left:0; top:.6rem;
+    width:5px; height:5px; border-radius:50%; background:var(--accent);
+  }
+
+  .exp-tags {
+    display:flex; flex-wrap:wrap; gap:.5rem; margin-top:1rem;
+  }
+  .exp-tag {
+    padding:.25rem .75rem; border-radius:999px;
+    font-size:.7rem; font-weight:600; letter-spacing:.06em;
+    background:rgba(14,165,233,0.1); border:1px solid rgba(14,165,233,0.25);
+    color:var(--glow);
+  }
+
+  /* ─── DIAMANTE ───────────────────────────────── */
+  #diamante {
+    background: linear-gradient(135deg, var(--deep) 0%, #051232 50%, var(--mid) 100%);
+    overflow:hidden;
+  }
+
+  .diamante-inner {
+    max-width:1100px; margin:0 auto; padding:7rem 2rem;
+    display:flex; align-items:center; gap:5rem;
+  }
+
+  .diamante-visual {
+    flex-shrink:0; position:relative; width:300px; height:300px;
+    display:flex; align-items:center; justify-content:center;
+  }
+  #diamondCanvas {
+    position:relative; z-index:2;
+    filter: drop-shadow(0 0 18px rgba(125,211,252,0.5));
+  }
+  .diamond-glow {
+    position:absolute; inset:-60px; border-radius:50%;
+    background:radial-gradient(circle,rgba(125,211,252,0.18) 0%,transparent 65%);
+    animation:pulseGlow 3s ease-in-out infinite;
+    pointer-events:none;
+  }
+
+  .diamante-content { flex:1; }
+
+  .seal-badge {
+    display:inline-flex; align-items:center; gap:.6rem;
+    padding:.4rem 1.1rem; border-radius:999px; margin-bottom:1.5rem;
+    background:rgba(165,243,252,0.08); border:1px solid rgba(165,243,252,0.3);
+    font-size:.7rem; font-weight:600; letter-spacing:.14em; text-transform:uppercase;
+    color:var(--diamond);
+  }
+
+  .diamante-title {
+    font-family:'Source Sans 3', sans-serif; font-size:clamp(1.8rem,4vw,2.6rem);
+    font-weight:700; line-height:1.1; margin-bottom:1rem;
+  }
+  .diamante-title .highlight {
+    background:linear-gradient(135deg, var(--diamond), var(--neon));
+    -webkit-background-clip:text; -webkit-text-fill-color:transparent;
+  }
+
+  .diamante-desc { font-size:.97rem; color:rgba(186,230,253,0.8); line-height:1.75; margin-bottom:1.5rem; }
+
+  .diamante-facts {
+    display:flex; flex-direction:column; gap:.75rem;
+  }
+  .fact {
+    display:flex; align-items:flex-start; gap:.8rem;
+    font-size:.9rem; color:rgba(186,230,253,0.75); line-height:1.5;
+  }
+  .fact-icon { flex-shrink:0; width:20px; height:20px; margin-top:.1rem; }
+
+  /* ─── TECNOLOGIA ─────────────────────────────── */
+  #tecnologia { background:var(--deep); }
+
+  .skills-grid {
+    display:grid; grid-template-columns:repeat(auto-fill, minmax(260px,1fr));
+    gap:1.2rem; margin-top:3rem;
+  }
+
+  .skill-card {
+    padding:1.5rem; border-radius:12px;
+    background:var(--card); border:1px solid rgba(14,165,233,0.12);
+    transition:border-color .3s, transform .3s, box-shadow .3s;
+    opacity:0; transform:translateY(16px);
+    transition: opacity .5s, transform .5s, border-color .3s, box-shadow .3s;
+  }
+  .skill-card.visible { opacity:1; transform:translateY(0); }
+  .skill-card:hover { border-color:rgba(14,165,233,0.4); transform:translateY(-4px); box-shadow:0 8px 32px rgba(14,165,233,0.12); }
+
+  .skill-icon { font-size:1.6rem; margin-bottom:.8rem; }
+  .skill-name { font-family:'Source Sans 3', sans-serif; font-size:.98rem; font-weight:700; color:var(--white); margin-bottom:.4rem; }
+  .skill-desc { font-size:.82rem; color:var(--muted); line-height:1.5; }
+
+  .skill-bar-wrap { margin-top:.8rem; height:3px; border-radius:99px; background:rgba(14,165,233,0.12); overflow:hidden; }
+  .skill-bar { height:100%; border-radius:99px; background:linear-gradient(90deg,var(--accent),var(--neon)); transition:width 1.2s ease; width:0; }
+
+  /* ─── CURSOS ─────────────────────────────────── */
+  #cursos { background:var(--navy); }
+
+  .courses-grid {
+    display:grid; grid-template-columns:repeat(auto-fill, minmax(220px,1fr));
+    gap:1rem; margin-top:3rem;
+  }
+
+  .course-card {
+    padding:1.5rem; border-radius:12px;
+    background:var(--card); border:1px solid rgba(14,165,233,0.1);
+    transition: border-color .3s, transform .3s;
+  }
+  .course-card:hover { border-color:rgba(14,165,233,0.35); transform:translateY(-3px); }
+  .course-icon { font-size:1.3rem; margin-bottom:.6rem; }
+  .course-name { font-size:.9rem; font-weight:600; color:var(--white); line-height:1.4; }
+  .course-org { font-size:.75rem; color:var(--muted); margin-top:.3rem; }
+
+  /* ─── DIFERENCIAL ────────────────────────────── */
+  #diferencial {
+    background:linear-gradient(135deg, var(--mid) 0%, #061836 100%);
+  }
+
+  .dif-grid {
+    display:grid; grid-template-columns:1fr 1fr; gap:2rem; margin-top:3rem;
+  }
+
+  .dif-card {
+    padding:2.2rem; border-radius:16px;
+    background:rgba(10,28,64,0.9); border:1px solid rgba(14,165,233,0.2);
+    position:relative; overflow:hidden;
+    transition: transform .3s, border-color .3s;
+  }
+  .dif-card:hover { transform:translateY(-4px); border-color:rgba(14,165,233,0.5); }
+  .dif-card::before {
+    content:''; position:absolute; top:0; left:0; right:0; height:2px;
+    background:linear-gradient(90deg,var(--accent),var(--neon));
+  }
+  .dif-num {
+    font-family:'Source Sans 3', sans-serif; font-size:3rem; font-weight:700;
+    background:linear-gradient(135deg,var(--accent),var(--neon));
+    -webkit-background-clip:text; -webkit-text-fill-color:transparent;
+    opacity:.3; line-height:1;
+  }
+  .dif-title { font-family:'Source Sans 3', sans-serif; font-size:1.1rem; font-weight:700; margin:-.5rem 0 .6rem; color:var(--white); }
+  .dif-desc { font-size:.88rem; color:var(--muted); line-height:1.65; }
+
+  /* ─── OBJETIVO ───────────────────────────────── */
+  #objetivo { background:var(--deep); }
+
+  .obj-grid {
+    display:grid; grid-template-columns:repeat(3,1fr); gap:1.2rem; margin-top:3rem;
+  }
+
+  .obj-card {
+    padding:1.8rem; border-radius:12px;
+    background:var(--card); border:1px solid rgba(14,165,233,0.12);
+    text-align:center; transition:transform .3s, border-color .3s;
+  }
+  .obj-card:hover { transform:translateY(-4px); border-color:rgba(14,165,233,0.4); }
+  .obj-emoji { font-size:1.8rem; margin-bottom:.8rem; }
+  .obj-title { font-family:'Source Sans 3', sans-serif; font-size:.97rem; font-weight:700; color:var(--white); margin-bottom:.4rem; }
+  .obj-text { font-size:.82rem; color:var(--muted); line-height:1.5; }
+
+  /* ─── ENCERRAMENTO ───────────────────────────── */
+  #encerramento {
+    background: radial-gradient(ellipse 80% 60% at 50% 0%, rgba(14,165,233,0.12),transparent 70%),
+                var(--navy);
+    padding:8rem 2rem 6rem;
+    text-align:center;
+  }
+
+  .closing-title {
+    font-family:'Source Sans 3', sans-serif;
+    font-size:clamp(1.6rem,4vw,3rem); font-weight:700;
+    max-width:700px; margin:0 auto 1.5rem;
+    line-height:1.2;
+  }
+
+  .closing-sub {
+    font-size:1rem; color:var(--muted); max-width:500px;
+    margin:0 auto 2.5rem; line-height:1.7;
+  }
+
+  .contact-row {
+    display:flex; justify-content:center; gap:1.5rem; flex-wrap:wrap;
+    margin-bottom:2rem;
+  }
+
+  .contact-item {
+    display:flex; align-items:center; gap:.5rem;
+    font-size:.88rem; color:var(--glow);
+    background:rgba(14,165,233,0.08); border:1px solid rgba(14,165,233,0.2);
+    padding:.55rem 1.2rem; border-radius:999px;
+    text-decoration:none; transition:background .2s;
+  }
+  .contact-item:hover { background:rgba(14,165,233,0.16); }
+
+  .closing-quote {
+    margin-top:3rem; font-size:.85rem; color:rgba(186,230,253,0.35);
+    font-style:italic; letter-spacing:.06em;
+  }
+
+  /* ─── FOOTER ────────────────────────────────── */
+  footer {
+    background:var(--deep); border-top:1px solid rgba(14,165,233,0.08);
+    text-align:center; padding:1.5rem;
+    font-size:.72rem; color:rgba(186,230,253,0.25); letter-spacing:.06em;
+  }
+
+  /* ─── ANIMATIONS ─────────────────────────────── */
+  @keyframes fadeUp {
+    from { opacity:0; transform:translateY(24px); }
+    to   { opacity:1; transform:translateY(0); }
+  }
+  @keyframes pulse {
+    0%,100%{ opacity:1; transform:scale(1); }
+    50%{ opacity:.5; transform:scale(1.5); }
+  }
+  @keyframes scrollAnim {
+    0%{ transform:scaleY(0); transform-origin:top; }
+    50%{ transform:scaleY(1); transform-origin:top; }
+    51%{ transform:scaleY(1); transform-origin:bottom; }
+    100%{ transform:scaleY(0); transform-origin:bottom; }
+  }
+  @keyframes pulseGlow {
+    0%,100%{ opacity:.5; transform:scale(1); }
+    50%{ opacity:1; transform:scale(1.06); }
+  }
+
+  /* ─── RESPONSIVE ─────────────────────────────── */
+  @media(max-width:900px){
+    nav{ padding:0 1.5rem; }
+    .nav-links{ display:none; }
+    .sobre-grid, .dif-grid, .diamante-inner{ grid-template-columns:1fr; gap:2.5rem; flex-direction:column; }
+    .diamante-visual{ width:200px; height:200px; margin:0 auto; }
+    .obj-grid{ grid-template-columns:1fr 1fr; }
+  }
+  @media(max-width:580px){
+    .obj-grid{ grid-template-columns:1fr; }
+    .sobre-stats{ grid-template-columns:1fr 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-logo">G. Doelle</div>
+  <ul class="nav-links">
+    <li><a href="#sobre">Sobre</a></li>
+    <li><a href="#experiencia">Experiência</a></li>
+    <li><a href="#diamante">Transparência</a></li>
+    <li><a href="#tecnologia">Tecnologia</a></li>
+    <li><a href="#cursos">Formação</a></li>
+    <li><a href="#objetivo">Objetivo</a></li>
+    <li><a href="#encerramento">Contato</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-bg"></div>
+  <div class="grid-lines">
+    <svg viewBox="0 0 1440 900" preserveAspectRatio="none">
+      <defs>
+        <pattern id="grid" width="80" height="80" patternUnits="userSpaceOnUse">
+          <path d="M 80 0 L 0 0 0 80" fill="none" stroke="rgba(14,165,233,1)" stroke-width=".5"/>
+        </pattern>
+      </defs>
+      <rect width="100%" height="100%" fill="url(#grid)"/>
+    </svg>
+  </div>
+
+  <div class="hero-inner">
+    <div class="hero-badge"><span></span> Profissional Estratégico em Gestão Pública</div>
+    <h1 class="hero-name">Guilherme Francisco<br><em>Matias Doelle</em></h1>
+    <p class="hero-title">Web Manager · Designer Gráfico · Assessor Especial da Presidência</p>
+    <div class="hero-divider"></div>
+    <p class="hero-tagline">Especialista em gestão digital, transparência pública e comunicação institucional, com atuação estratégica nos dois cargos mais importantes do município de Guaraqueçaba.</p>
+    <div class="hero-actions">
+      <a href="#sobre" class="btn-primary">Conhecer Trajetória</a>
+      <a href="#encerramento" class="btn-outline">Entrar em Contato</a>
+    </div>
+  </div>
+
+  <div class="hero-scroll">
+    <div class="scroll-line"></div>
+    <span>Scroll</span>
+  </div>
+</section>
+
+<!-- SOBRE -->
+<section id="sobre">
+  <div class="section-inner">
+    <div class="section-label">Perfil Profissional</div>
+    <h2 class="section-title">Um Gestor Público<br>da Era Digital</h2>
+    <div class="sobre-grid">
+      <div class="sobre-text">
+        <p>Profissional com sólida experiência em gestão pública, comunicação institucional, gestão digital e organização documental. Atua diretamente em posições estratégicas na administração pública municipal, combinando visão tecnológica com excelência operacional.</p>
+        <p>Como <strong style="color:var(--glow)">Assessor Especial da Presidência</strong> na Câmara Municipal de Guaraqueçaba, lidera projetos estratégicos, coordena equipes, gerencia o portal da transparência e a presença digital institucional , transformando a comunicação pública através da tecnologia.</p>
+        <p>Sua passagem como assessor nos dois cargos mais importantes do município, <strong style="color:var(--glow)">Prefeitura e Presidência da Câmara</strong>, o torna um profissional de rara abrangência estratégica no cenário da gestão pública paranaense.</p>
+      </div>
+      <div class="sobre-stats">
+        <div class="stat-card">
+          <div class="stat-num">3+</div>
+          <div class="stat-label">Anos de Assessoria na Prefeitura Municipal</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-num">2025</div>
+          <div class="stat-label">Assessor Especial da Presidência da Câmara</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-num">10+</div>
+          <div class="stat-label">Cursos em Gestão Pública e Transparência</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-num">💎</div>
+          <div class="stat-label">Conquistou o Selo Diamante de Transparência</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EXPERIENCIA -->
+<section id="experiencia">
+  <div class="section-inner">
+    <div class="section-label">Trajetória Profissional</div>
+    <h2 class="section-title">Experiência que<br>Faz a Diferença</h2>
+    <p class="section-sub">Atuação em dois dos cargos mais relevantes da administração pública municipal de Guaraqueçaba.</p>
+
+    <div class="exp-timeline">
+
+      <!-- Câmara -->
+      <div class="exp-item">
+        <div class="exp-dot"></div>
+        <div class="exp-period">2025, Atual</div>
+        <div class="exp-role">Assessor Especial da Presidência</div>
+        <div class="exp-org">🏛 Câmara Municipal de Guaraqueçaba, PR</div>
+        <ul class="exp-list">
+          <li>Gestão estratégica de projetos institucionais e administrativos de alto impacto</li>
+          <li>Coordenação e gestão de equipes de trabalho</li>
+          <li>Responsável pela organização geral da funcionalidade da Câmara Municipal</li>
+          <li>Gestão completa do Portal da Transparência, site oficial e redes sociais institucionais</li>
+          <li>Atuação como Web Manager e Designer Gráfico institucional</li>
+          <li>Criação de campanhas institucionais e materiais de comunicação pública</li>
+          <li>Gestão documental e organização de arquivos institucionais</li>
+          <li>Gestão do Índice de Transparência Pública (ITP), conquista histórica do Selo Diamante</li>
+        </ul>
+        <div class="exp-tags">
+          <span class="exp-tag">Gestão de Projetos</span>
+          <span class="exp-tag">Web Manager</span>
+          <span class="exp-tag">Transparência Pública</span>
+          <span class="exp-tag">Design Institucional</span>
+          <span class="exp-tag">Liderança</span>
+          <span class="exp-tag">Gestão Documental</span>
+        </div>
+      </div>
+
+      <!-- Prefeitura -->
+      <div class="exp-item">
+        <div class="exp-dot" style="background:rgba(14,165,233,0.6);"></div>
+        <div class="exp-period">2021, 2024</div>
+        <div class="exp-role">Assessor de Comunicação</div>
+        <div class="exp-org">🏟 Prefeitura Municipal de Guaraqueçaba, PR</div>
+        <ul class="exp-list">
+          <li>Gestão do site oficial do município e Portal da Transparência</li>
+          <li>Administração estratégica de redes sociais institucionais</li>
+          <li>Produção audiovisual: edição de vídeo, fotografia e cobertura de eventos</li>
+          <li>Criação de materiais gráficos e comunicação pública</li>
+          <li>Adequação e organização digital conforme exigências do Ministério Público</li>
+          <li>Fortalecimento da comunicação e imagem institucional do município</li>
+        </ul>
+        <div class="exp-tags">
+          <span class="exp-tag">Comunicação Institucional</span>
+          <span class="exp-tag">Audiovisual</span>
+          <span class="exp-tag">Portal Transparência</span>
+          <span class="exp-tag">Design Gráfico</span>
+          <span class="exp-tag">Marketing Digital</span>
+        </div>
+      </div>
+
+      <!-- Projetos Complementares -->
+      <div class="exp-item">
+        <div class="exp-dot" style="background:rgba(14,165,233,0.35);"></div>
+        <div class="exp-period">Complementar</div>
+        <div class="exp-role">Empreendedor & Produtor Cultural</div>
+        <div class="exp-org">🌊 Plataforma Olhar Caiçara + Lei Federal Paulo Gustavo</div>
+        <ul class="exp-list">
+          <li>Idealizador da plataforma Olhar Caiçara, turismo ecológico e comunicação digital</li>
+          <li>Projetos audiovisuais selecionados pela Lei Federal Paulo Gustavo</li>
+          <li>Produção de curta-metragens e execução de projetos culturais</li>
+        </ul>
+        <div class="exp-tags">
+          <span class="exp-tag">Empreendedorismo</span>
+          <span class="exp-tag">Produção Cultural</span>
+          <span class="exp-tag">Audiovisual</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- DIAMANTE -->
+<section id="diamante">
+  <div class="diamante-inner">
+    <div class="diamante-visual">
+      <div class="diamond-glow"></div>
+      <canvas id="diamondCanvas" width="300" height="300"></canvas>
+    </div>
+
+    <div class="diamante-content">
+      <div class="seal-badge">💎 Conquista Histórica</div>
+      <h2 class="diamante-title">Selo Diamante de<br><span class="highlight">Transparência Pública</span></h2>
+      <p class="diamante-desc">
+        Guilherme foi o responsável direto pela gestão do Índice de Transparência Pública (ITP) da Câmara Municipal de Guaraqueçaba, liderando o processo que resultou na conquista inédita e histórica do mais alto grau de reconhecimento em transparência institucional no Estado do Paraná.
+      </p>
+      <div class="diamante-facts">
+        <div class="fact">
+          <svg class="fact-icon" viewBox="0 0 20 20" fill="none"><circle cx="10" cy="10" r="9" stroke="#a5f3fc" stroke-width="1.5"/><path d="M6 10l3 3 5-5" stroke="#a5f3fc" stroke-width="1.5" stroke-linecap="round"/></svg>
+          <span>Primeiro Selo Diamante conquistado na história da Câmara Municipal de Guaraqueçaba</span>
+        </div>
+        <div class="fact">
+          <svg class="fact-icon" viewBox="0 0 20 20" fill="none"><circle cx="10" cy="10" r="9" stroke="#a5f3fc" stroke-width="1.5"/><path d="M6 10l3 3 5-5" stroke="#a5f3fc" stroke-width="1.5" stroke-linecap="round"/></svg>
+          <span>Maior reconhecimento de transparência pública institucional concedido pelo Tribunal de Contas do Estado</span>
+        </div>
+        <div class="fact">
+          <svg class="fact-icon" viewBox="0 0 20 20" fill="none"><circle cx="10" cy="10" r="9" stroke="#a5f3fc" stroke-width="1.5"/><path d="M6 10l3 3 5-5" stroke="#a5f3fc" stroke-width="1.5" stroke-linecap="round"/></svg>
+          <span>Resultado de gestão ativa e comprometida do Índice de Transparência Pública (ITP)</span>
+        </div>
+        <div class="fact">
+          <svg class="fact-icon" viewBox="0 0 20 20" fill="none"><circle cx="10" cy="10" r="9" stroke="#a5f3fc" stroke-width="1.5"/><path d="M6 10l3 3 5-5" stroke="#a5f3fc" stroke-width="1.5" stroke-linecap="round"/></svg>
+          <span>Marco que posiciona Guilherme como referência em transparência e governança pública digital</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TECNOLOGIA -->
+<section id="tecnologia">
+  <div class="section-inner">
+    <div class="section-label">Competências</div>
+    <h2 class="section-title">Domínio Técnico &<br>Ferramentas</h2>
+    <p class="section-sub">Ampla experiência com plataformas digitais, sistemas governamentais e ferramentas de criação.</p>
+
+    <div class="skills-grid">
+      <div class="skill-card" data-level="95">
+        <div class="skill-icon">🌐</div>
+        <div class="skill-name">Gestão Web Governamental</div>
+        <div class="skill-desc">Sites oficiais, portais da transparência e plataformas públicas digitais.</div>
+        <div class="skill-bar-wrap"><div class="skill-bar"></div></div>
+      </div>
+      <div class="skill-card" data-level="92">
+        <div class="skill-icon">🔍</div>
+        <div class="skill-name">Portal da Transparência</div>
+        <div class="skill-desc">Gestão do ITP, conformidade legal e publicação de informações públicas.</div>
+        <div class="skill-bar-wrap"><div class="skill-bar"></div></div>
+      </div>
+      <div class="skill-card" data-level="90">
+        <div class="skill-icon">🎨</div>
+        <div class="skill-name">Adobe Photoshop & Illustrator</div>
+        <div class="skill-desc">Design gráfico, materiais institucionais, identidade visual e campanhas.</div>
+        <div class="skill-bar-wrap"><div class="skill-bar"></div></div>
+      </div>
+      <div class="skill-card" data-level="88">
+        <div class="skill-icon">🎬</div>
+        <div class="skill-name">Adobe Premiere, Audiovisual</div>
+        <div class="skill-desc">Edição de vídeo, cobertura de eventos, produção cultural e institucional.</div>
+        <div class="skill-bar-wrap"><div class="skill-bar"></div></div>
+      </div>
+      <div class="skill-card" data-level="93">
+        <div class="skill-icon">📋</div>
+        <div class="skill-name">Gestão de Projetos</div>
+        <div class="skill-desc">Coordenação de equipes, planejamento estratégico e execução institucional.</div>
+        <div class="skill-bar-wrap"><div class="skill-bar"></div></div>
+      </div>
+      <div class="skill-card" data-level="87">
+        <div class="skill-icon">📁</div>
+        <div class="skill-name">Organização Documental</div>
+        <div class="skill-desc">Arquivamento, protocolos, documentos públicos e gestão de informação.</div>
+        <div class="skill-bar-wrap"><div class="skill-bar"></div></div>
+      </div>
+      <div class="skill-card" data-level="89">
+        <div class="skill-icon">📱</div>
+        <div class="skill-name">Marketing Digital & Redes Sociais</div>
+        <div class="skill-desc">Gestão de redes sociais institucionais, conteúdo e comunicação pública.</div>
+        <div class="skill-bar-wrap"><div class="skill-bar"></div></div>
+      </div>
+      <div class="skill-card" data-level="85">
+        <div class="skill-icon">🏠</div>
+        <div class="skill-name">Trabalho Remoto / Home Office</div>
+        <div class="skill-desc">Entrega de alto desempenho em ambiente remoto com autonomia e disciplina.</div>
+        <div class="skill-bar-wrap"><div class="skill-bar"></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CURSOS -->
+<section id="cursos">
+  <div class="section-inner">
+    <div class="section-label">Formação Contínua</div>
+    <h2 class="section-title">Mais de 10 Cursos<br>Profissionalizantes</h2>
+    <p class="section-sub">Capacitação constante em gestão pública, transparência e tecnologia.</p>
+
+    <div class="courses-grid">
+      <div class="course-card">
+        <div class="course-icon">⚖️</div>
+        <div class="course-name">Gestão e Transparência Pública</div>
+        <div class="course-org">Tribunal de Contas do Estado, TCE/PR</div>
+      </div>
+      <div class="course-card">
+        <div class="course-icon">🏛️</div>
+        <div class="course-name">Administração Pública</div>
+        <div class="course-org">Capacitação Institucional</div>
+      </div>
+      <div class="course-card">
+        <div class="course-icon">📡</div>
+        <div class="course-name">Comunicação Institucional Digital</div>
+        <div class="course-org">Formação Complementar</div>
+      </div>
+      <div class="course-card">
+        <div class="course-icon">🎯</div>
+        <div class="course-name">Marketing Pessoal & Profissional</div>
+        <div class="course-org">Formação Complementar</div>
+      </div>
+      <div class="course-card">
+        <div class="course-icon">🖥️</div>
+        <div class="course-name">Design Gráfico Avançado</div>
+        <div class="course-org">Formação Contínua Adobe</div>
+      </div>
+      <div class="course-card">
+        <div class="course-icon">🎥</div>
+        <div class="course-name">Produção Audiovisual</div>
+        <div class="course-org">Lei Federal Paulo Gustavo</div>
+      </div>
+      <div class="course-card">
+        <div class="course-icon">📊</div>
+        <div class="course-name">Auxiliar Administrativo</div>
+        <div class="course-org">Formação Complementar</div>
+      </div>
+      <div class="course-card">
+        <div class="course-icon">🔎</div>
+        <div class="course-name">Índice de Transparência Pública, ITP</div>
+        <div class="course-org">TCE/PR, Especialização</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- DIFERENCIAL -->
+<section id="diferencial">
+  <div class="section-inner">
+    <div class="section-label">Diferencial Estratégico</div>
+    <h2 class="section-title">O Que Torna Guilherme<br>Único no Mercado</h2>
+    <p class="section-sub">Perfil raro que une experiência nos dois eixos mais importantes da administração pública municipal.</p>
+
+    <div class="dif-grid">
+      <div class="dif-card">
+        <div class="dif-num">01</div>
+        <div class="dif-title">Dupla Assessoria Estratégica</div>
+        <div class="dif-desc">Único profissional com experiência de assessor tanto na Prefeitura Municipal quanto na Presidência da Câmara de Guaraqueçaba, os dois cargos mais estratégicos do município.</div>
+      </div>
+      <div class="dif-card">
+        <div class="dif-num">02</div>
+        <div class="dif-title">Gestão Digital + Pública</div>
+        <div class="dif-desc">Combina com domínio a gestão institucional pública com expertise em tecnologia, design, audiovisual e comunicação digital, um perfil híbrido e extremamente valioso.</div>
+      </div>
+      <div class="dif-card">
+        <div class="dif-num">03</div>
+        <div class="dif-title">Conquista Histórica de Transparência</div>
+        <div class="dif-desc">Responsável direto pelo Selo Diamante de Transparência, reconhecimento máximo em gestão pública, evidenciando comprometimento com excelência e conformidade institucional.</div>
+      </div>
+      <div class="dif-card">
+        <div class="dif-num">04</div>
+        <div class="dif-title">Visão 360° Institucional</div>
+        <div class="dif-desc">Da organização documental à produção audiovisual, do portal da transparência às redes sociais, capacidade rara de atuar com excelência em todas as frentes da gestão moderna.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- OBJETIVO -->
+<section id="objetivo">
+  <div class="section-inner">
+    <div class="section-label">Próximos Passos</div>
+    <h2 class="section-title">Objetivo Profissional</h2>
+    <p class="section-sub">Foco em oportunidades que unam tecnologia, inovação e gestão estratégica para gerar impacto real.</p>
+
+    <div class="obj-grid">
+      <div class="obj-card">
+        <div class="obj-emoji">💡</div>
+        <div class="obj-title">Tecnologia & Inovação</div>
+        <div class="obj-text">Aplicar experiência digital em ambientes orientados à transformação e inovação tecnológica.</div>
+      </div>
+      <div class="obj-card">
+        <div class="obj-emoji">📊</div>
+        <div class="obj-title">Gestão Digital</div>
+        <div class="obj-text">Liderar processos de digitalização, organização e comunicação institucional com eficiência.</div>
+      </div>
+      <div class="obj-card">
+        <div class="obj-emoji">🏠</div>
+        <div class="obj-title">Home Office / Remoto</div>
+        <div class="obj-text">Alta performance comprovada em ambiente remoto com autonomia, disciplina e resultados.</div>
+      </div>
+      <div class="obj-card">
+        <div class="obj-emoji">🌐</div>
+        <div class="obj-title">Gestão Web & Comunicação</div>
+        <div class="obj-text">Web management, portais institucionais, redes sociais e comunicação digital estratégica.</div>
+      </div>
+      <div class="obj-card">
+        <div class="obj-emoji">🎯</div>
+        <div class="obj-title">Liderança de Equipes</div>
+        <div class="obj-text">Coordenação de equipes multidisciplinares com foco em entregas de excelência.</div>
+      </div>
+      <div class="obj-card">
+        <div class="obj-emoji">🔄</div>
+        <div class="obj-title">Transformação Digital</div>
+        <div class="obj-text">Contribuir com modernização de processos, eficiência operacional e fortalecimento institucional.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ENCERRAMENTO -->
+<section id="encerramento">
+  <div class="section-label" style="justify-content:center; margin-bottom:1.5rem;">Vamos Conversar</div>
+  <h2 class="closing-title">Pronto para Agregar Valor<br>à Sua Organização</h2>
+  <p class="closing-sub">Experiência estratégica, domínio digital e comprometimento com resultados excepcionais. Disponível para oportunidades presenciais e remotas.</p>
+
+  <div class="contact-row">
+    <a href="tel:41992659717" class="contact-item">
+      📞 (41) 99265-9717
+    </a>
+    <a href="mailto:guilhermedoelle@icloud.com" class="contact-item">
+      ✉️ guilhermedoelle@icloud.com
+    </a>
+    <span class="contact-item">
+      📍 Guaraqueçaba, PR
+    </span>
+  </div>
+
+  <div style="margin-top:1.5rem;">
+    <a href="mailto:guilhermedoelle@icloud.com" class="btn-primary">Enviar Mensagem</a>
+  </div>
+
+  <p class="closing-quote">"Gestão pública moderna é a intersecção entre tecnologia, transparência e liderança humana."</p>
+</section>
+
+<footer>
+  © 2025 Guilherme Francisco Matias Doelle · Todos os direitos reservados · Guaraqueçaba, Paraná
+</footer>
+
+<script>
+  // Scroll animations
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        // Animate skill bars
+        const bar = entry.target.querySelector('.skill-bar');
+        if (bar) {
+          const level = entry.target.dataset.level || 80;
+          setTimeout(() => { bar.style.width = level + '%'; }, 100);
+        }
+      }
+    });
+  }, { threshold: 0.15 });
+
+  document.querySelectorAll('.exp-item, .skill-card').forEach(el => observer.observe(el));
+
+  // Stagger skill cards
+  document.querySelectorAll('.skill-card').forEach((card, i) => {
+    card.style.transitionDelay = (i * 0.07) + 's';
+  });
+</script>
+
+
+<script>
+(function(){
+  const canvas = document.getElementById('diamondCanvas');
+  if(!canvas) return;
+  const ctx = canvas.getContext('2d');
+  const W = 300, H = 300, CX = W/2, CY = H/2;
+
+  // Diamond geometry — 6 facets like a brilliant cut, top view
+  // Apex top, girdle, culet bottom
+  const apex   = {x:CX, y:CY - 110}; // top tip
+  const culet  = {x:CX, y:CY + 118}; // bottom tip
+  const girdleR = 98; // girdle radius
+  const tableR  = 52; // table (flat top) radius
+  const tableY  = CY - 22; // table level
+  const girdleY = CY + 10;  // girdle level
+
+  // Generate girdle points (octagonal)
+  const N = 8;
+  function girdlePt(i, r, cy){
+    const a = (i / N) * Math.PI * 2 - Math.PI/8;
+    return {x: CX + Math.cos(a)*r, y: cy + Math.sin(a)*r*0.38};
+  }
+  function tablePt(i){
+    const a = (i / N) * Math.PI * 2 - Math.PI/8;
+    return {x: CX + Math.cos(a)*tableR, y: tableY + Math.sin(a)*tableR*0.32};
+  }
+
+  let t = 0;
+  const COLORS = {
+    table:    ['rgba(165,243,252,0.85)','rgba(125,211,252,0.7)'],
+    upper:    ['rgba(14,165,233,0.7)','rgba(56,189,248,0.55)','rgba(125,211,252,0.6)','rgba(14,165,233,0.5)'],
+    lower:    ['rgba(7,116,175,0.6)','rgba(14,165,233,0.5)','rgba(56,189,248,0.45)','rgba(7,116,175,0.55)'],
+    girdle:   'rgba(165,243,252,0.25)',
+  };
+
+  function lerp(a,b,t){ return a+(b-a)*t; }
+  function easeInOut(t){ return t<0.5?2*t*t:1-Math.pow(-2*t+2,2)/2; }
+
+  // Sparkle particles
+  const sparks = Array.from({length:18}, (_,i)=>({
+    angle: (i/18)*Math.PI*2,
+    r: girdleR * (0.7 + Math.random()*0.5),
+    speed: 0.003 + Math.random()*0.004,
+    size:  1 + Math.random()*2,
+    phase: Math.random()*Math.PI*2,
+    life:  Math.random()
+  }));
+
+  function drawFacet(pts, col, alpha_mod=1){
+    if(pts.length < 2) return;
+    ctx.beginPath();
+    ctx.moveTo(pts[0].x, pts[0].y);
+    for(let i=1;i<pts.length;i++) ctx.lineTo(pts[i].x, pts[i].y);
+    ctx.closePath();
+    ctx.fillStyle = col;
+    ctx.globalAlpha = alpha_mod;
+    ctx.fill();
+    ctx.globalAlpha = 1;
+    ctx.strokeStyle = 'rgba(165,243,252,0.35)';
+    ctx.lineWidth = 0.6;
+    ctx.stroke();
+  }
+
+  function draw(){
+    ctx.clearRect(0,0,W,H);
+    t += 0.008;
+
+    // Breathing scale
+    const breathe = 1 + Math.sin(t*0.7)*0.022;
+    ctx.save();
+    ctx.translate(CX,CY);
+    ctx.scale(breathe,breathe);
+    ctx.translate(-CX,-CY);
+
+    // Rotation offset for shimmer effect
+    const shimmer = Math.sin(t*1.3)*0.04;
+
+    // ── Table (top flat face) ──────────────────────
+    const tableAlpha = 0.75 + Math.sin(t*2.1)*0.15;
+    ctx.beginPath();
+    for(let i=0;i<N;i++){
+      const p = tablePt(i);
+      i===0 ? ctx.moveTo(p.x,p.y) : ctx.lineTo(p.x,p.y);
+    }
+    ctx.closePath();
+    const tg = ctx.createLinearGradient(CX-tableR, tableY-20, CX+tableR, tableY+20);
+    tg.addColorStop(0,'rgba(200,248,255,0.9)');
+    tg.addColorStop(0.5,'rgba(125,211,252,0.8)');
+    tg.addColorStop(1,'rgba(14,165,233,0.7)');
+    ctx.fillStyle = tg;
+    ctx.globalAlpha = tableAlpha;
+    ctx.fill();
+    ctx.globalAlpha = 1;
+    ctx.strokeStyle = 'rgba(255,255,255,0.6)';
+    ctx.lineWidth = 1;
+    ctx.stroke();
+
+    // ── Upper facets (table to girdle) ────────────
+    for(let i=0;i<N;i++){
+      const t0 = tablePt(i);
+      const t1 = tablePt((i+1)%N);
+      const g0 = girdlePt(i, girdleR, girdleY);
+      const g1 = girdlePt((i+1)%N, girdleR, girdleY);
+      const pulse = 0.7 + Math.sin(t*2.5 + i*0.8 + shimmer)*0.2;
+      const col = COLORS.upper[i%4];
+      drawFacet([t0,t1,g1,g0], col, pulse);
+    }
+
+    // ── Lower facets (girdle to culet) ────────────
+    for(let i=0;i<N;i++){
+      const g0 = girdlePt(i, girdleR, girdleY);
+      const g1 = girdlePt((i+1)%N, girdleR, girdleY);
+      const pulse = 0.65 + Math.sin(t*2.1 + i*1.1 + Math.PI/4)*0.2;
+      const col = COLORS.lower[i%4];
+      drawFacet([g0, g1, culet], col, pulse);
+    }
+
+    // ── Girdle edge highlight ──────────────────────
+    ctx.beginPath();
+    for(let i=0;i<N;i++){
+      const p = girdlePt(i, girdleR, girdleY);
+      i===0 ? ctx.moveTo(p.x,p.y) : ctx.lineTo(p.x,p.y);
+    }
+    ctx.closePath();
+    ctx.strokeStyle = 'rgba(165,243,252,0.55)';
+    ctx.lineWidth = 1.2;
+    ctx.stroke();
+
+    // ── Star lines from center of table ───────────
+    ctx.strokeStyle = 'rgba(200,248,255,0.18)';
+    ctx.lineWidth = 0.5;
+    const tc = {x:CX, y:tableY};
+    for(let i=0;i<N;i++){
+      const p = tablePt(i);
+      ctx.beginPath(); ctx.moveTo(tc.x,tc.y); ctx.lineTo(p.x,p.y); ctx.stroke();
+    }
+
+    // ── Center flash ──────────────────────────────
+    const flashAlpha = (Math.sin(t*3.1)+1)/2 * 0.35;
+    const rg = ctx.createRadialGradient(CX, tableY+5, 2, CX, tableY+5, 40);
+    rg.addColorStop(0, `rgba(220,250,255,${flashAlpha})`);
+    rg.addColorStop(1, 'rgba(125,211,252,0)');
+    ctx.fillStyle = rg;
+    ctx.globalAlpha = 1;
+    ctx.beginPath(); ctx.arc(CX,tableY+5,40,0,Math.PI*2); ctx.fill();
+
+    ctx.restore();
+
+    // ── Orbiting sparkles ─────────────────────────
+    sparks.forEach(sp => {
+      sp.angle += sp.speed;
+      sp.life += 0.012;
+      const alpha = (Math.sin(sp.life + sp.phase)*0.5+0.5) * 0.9;
+      const ex = CX + Math.cos(sp.angle) * sp.r * breathe;
+      const ey = CY + Math.sin(sp.angle) * sp.r * 0.38 * breathe;
+
+      // Cross sparkle shape
+      ctx.save();
+      ctx.translate(ex, ey);
+      ctx.rotate(sp.angle + t);
+      ctx.globalAlpha = alpha;
+      ctx.strokeStyle = 'rgba(165,243,252,0.9)';
+      ctx.lineWidth = sp.size * 0.6;
+      const s = sp.size * 3.5;
+      ctx.beginPath(); ctx.moveTo(-s,0); ctx.lineTo(s,0); ctx.stroke();
+      ctx.beginPath(); ctx.moveTo(0,-s); ctx.lineTo(0,s); ctx.stroke();
+      ctx.restore();
+    });
+
+    requestAnimationFrame(draw);
+  }
+
+  draw();
+})();
+</script>
+</body>
+</html>
